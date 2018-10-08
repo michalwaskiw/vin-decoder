@@ -1,0 +1,25 @@
+{
+    "name": "michalwaskiw/vin-decoder",
+    "description": "Simple VIN validator and decoder library",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Michal Waskiw",
+            "email": "michal@stateofcode.pl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Decoder\\": "./src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Decoder\\Tests\\": "./tests/"
+        }
+    }
+}
