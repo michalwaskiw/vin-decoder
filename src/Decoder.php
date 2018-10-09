@@ -2,14 +2,17 @@
 
 namespace Decoder;
 
-class Decoder
+use Decoder\Interfaces\DecoderInterface;
+use Decoder\Interfaces\ValidatorInterface;
+
+class Decoder implements DecoderInterface
 {
     protected $code;
     protected $validator;
 
-    public function __construct()
+    public function __construct(ValidatorInterface $validator)
     {
-        $this->validator = new Validator();
+        $this->validator = $validator;
     }
 
     /**
@@ -28,8 +31,9 @@ class Decoder
         $this->code = strtoupper($code);
     }
 
-    public function isValid()
+    public function isValid($vin)
     {
+        $this->setCode($vin);
         return $this->validator->isValid($this->getCode());
     }
 }

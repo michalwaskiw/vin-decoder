@@ -2,7 +2,9 @@
 
 namespace Decoder;
 
-class Validator
+use Decoder\Interfaces\ValidatorInterface;
+
+class Validator implements ValidatorInterface
 {
     public function isValid($vin): bool
     {
