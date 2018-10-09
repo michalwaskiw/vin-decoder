@@ -2,24 +2,15 @@
 
 namespace Decoder;
 
-use Decoder\Exceptions\InvalidVinException;
-
 class Validator
 {
     public function isValid($vin): bool
     {
-        $result = $this->calculateModulo($vin);
-        if ($vin[Dictionary::CHECKSUM_CHAR_INDEX] == $result) {
+        $modulo = $this->calculateModulo($vin);
+        if ($vin[Dictionary::CHECKSUM_CHAR_INDEX] == $modulo) {
             return true;
         } else {
-            if (
-                $vin[Dictionary::CHECKSUM_CHAR_INDEX] == "X" &&
-                $result == 10
-            ) {
-                return true;
-            } else {
-                throw new InvalidVinException("VIN Invalid");
-            }
+            return $vin[Dictionary::CHECKSUM_CHAR_INDEX] == "X" && $modulo == 10;
         }
     }
 

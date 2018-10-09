@@ -2,8 +2,6 @@
 
 namespace Decoder;
 
-use Decoder\Exceptions\InvalidVinException;
-
 class Decoder
 {
     protected $code;
@@ -32,12 +30,6 @@ class Decoder
 
     public function isValid()
     {
-        try {
-            $this->validator->isValid($this->getCode());
-        } catch (InvalidVinException $exception) {
-            echo "Invalid VIN provided.";
-        }
-
-        return true;
+        return $this->validator->isValid($this->getCode());
     }
 }
