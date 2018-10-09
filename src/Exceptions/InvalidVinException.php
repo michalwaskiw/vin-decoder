@@ -2,7 +2,9 @@
 
 namespace Decoder\Exceptions;
 
-class InvalidVinException extends \Exception
+use Exception;
+
+class InvalidVinException extends Exception
 {
 
 }
