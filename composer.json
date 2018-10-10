@@ -21,5 +21,8 @@
         "psr-4": {
             "Decoder\\Tests\\": "./tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7"
     }
 }
