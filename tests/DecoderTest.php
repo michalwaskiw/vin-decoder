@@ -25,6 +25,8 @@ final class DecoderTest extends TestCase
     {
         $valid_vins = [
             "1M8GDM9AXKP042788",
+            "WAUZZZ4G7GN195890",
+            "TMBJB7NEXG0053505",
         ];
 
         foreach ($valid_vins as $vin) {
@@ -36,6 +38,7 @@ final class DecoderTest extends TestCase
     {
         $invalid_vins = [
             "1M8GDM9AZKP042788",
+            "WF0LXXGCBLDC61007",
         ];
 
         foreach ($invalid_vins as $vin) {
