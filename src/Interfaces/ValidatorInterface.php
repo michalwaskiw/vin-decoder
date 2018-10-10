@@ -3,4 +3,6 @@
 namespace Decoder\Interfaces;
 
 interface ValidatorInterface
-{}
+{
+
+}
