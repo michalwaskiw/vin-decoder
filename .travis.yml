@@ -7,6 +7,9 @@ branches:
 before_install:
   - travis_retry composer self-update
   - composer install
-script:
-  - ./vendor/bin/phpunit ./tests
-  - ./vendor/bin/phpcs ./src
+jobs:
+  include:
+    - stage: testing
+      script: ./vendor/bin/phpunit ./tests
+    - stage: sniffer
+      script: ./vendor/bin/phpcs ./src
