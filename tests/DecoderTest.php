@@ -9,6 +9,21 @@ use Decoder\Decoder;
 
 final class DecoderTest extends TestCase
 {
+    const VALID_VINS = [
+        "1M8GDM9AXKP042788",
+        "WAUZZZ4G7GN195890",
+        "TMBJB7NEXG0053505",
+    ];
+
+    const INVALID_VINS = [
+        "1M8GDM9AZKP042788",
+        "WF0LXXGCBLDC61007",
+    ];
+
+    const VALID_VINS_WITH_MANUFACTURER = [
+        "WAUZZZ4G7GN195890" => "Audi",
+    ];
+
     private $decoder;
 
     public function setUp()
@@ -23,26 +38,22 @@ final class DecoderTest extends TestCase
 
     public function testValidVin()
     {
-        $valid_vins = [
-            "1M8GDM9AXKP042788",
-            "WAUZZZ4G7GN195890",
-            "TMBJB7NEXG0053505",
-        ];
-
-        foreach ($valid_vins as $vin) {
+        foreach (self::VALID_VINS as $vin) {
             $this->assertTrue($this->decoder->isValid($vin));
         }
     }
 
     public function testInvalidVin()
     {
-        $invalid_vins = [
-            "1M8GDM9AZKP042788",
-            "WF0LXXGCBLDC61007",
-        ];
-
-        foreach ($invalid_vins as $vin) {
+        foreach (self::INVALID_VINS as $vin) {
             $this->assertFalse($this->decoder->isValid($vin));
+        }
+    }
+
+    public function testGetManufacturer()
+    {
+        foreach (self::VALID_VINS_WITH_MANUFACTURER as $vin => $manufacturer) {
+            $this->assertEquals($this->decoder->getManufacturer($vin), $manufacturer);
         }
     }
 }

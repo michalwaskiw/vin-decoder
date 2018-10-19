@@ -4,6 +4,7 @@ namespace Decoder;
 
 use Decoder\Interfaces\DecoderInterface;
 use Decoder\Interfaces\ValidatorInterface;
+use Decoder\Dictionaries\Manufacturers;
 
 class Decoder implements DecoderInterface
 {
@@ -35,5 +36,14 @@ class Decoder implements DecoderInterface
     {
         $this->setCode($vin);
         return $this->validator->isValid($this->getCode());
+    }
+
+    public function getManufacturer($vin)
+    {
+        foreach (Manufacturers::DATA as $wmi => $brand) {
+            if(strpos($vin, $wmi) === 0) {
+                return $brand;
+            }
+        }
     }
 }
