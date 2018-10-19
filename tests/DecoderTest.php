@@ -22,6 +22,7 @@ final class DecoderTest extends TestCase
 
     const VALID_VINS_WITH_MANUFACTURER = [
         "WAUZZZ4G7GN195890" => "Audi",
+        "TMBJB7NEXG0053505" => "Skoda",
     ];
 
     private $decoder;

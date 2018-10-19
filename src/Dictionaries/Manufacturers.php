@@ -38,7 +38,7 @@ class Manufacturers
         "SZ9" => "Epoka",
         "SZR" => "BORO",
         "TMA" => "Hyundai (prod. czeska)",
-        "TMB" => "Škoda Auto",
+        "TMB" => "Skoda",
         "TRA" => "Ikarus",
         "TRU" => "Audi",
         "U5Y" => "Hyundai (prod. słowacka)",
