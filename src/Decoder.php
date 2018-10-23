@@ -41,7 +41,7 @@ class Decoder implements DecoderInterface
     public function getManufacturer($vin)
     {
         foreach (Manufacturers::DATA as $wmi => $brand) {
-            if(strpos($vin, $wmi) === 0) {
+            if (strpos($vin, $wmi) === 0) {
                 return $brand;
             }
         }
